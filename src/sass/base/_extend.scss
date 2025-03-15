@@ -1,0 +1,58 @@
+//===============佔位
+//排版 (flex、grid的在mixin)
+%mar-auto{
+    margin: auto;
+}
+
+%page-content{
+    margin: auto;
+    padding: 0 30px;
+    max-width: 1420px; //需跟設計師確認
+    box-sizing: border-box;
+}
+
+%dis-bl{
+    display: block;
+}
+
+%dis-in-bl{
+    display: inline-block;
+}
+
+%dis-none{
+    display: none;
+}
+
+%dis-grid{
+    display: grid;
+}
+
+%border-box{
+    box-sizing: border-box;
+}
+
+//定位(absolute在mixin)
+%relative{
+    position: relative;
+}
+
+%sticky{
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+//font
+%text-a-c{
+    text-align: center;
+}
+
+//互動
+%pointer{
+    cursor: pointer;
+}
+
+//樣式
+%tm{
+    transform: matrix(1, -0.08, 0, 1, 0, 0);
+}

@@ -1,0 +1,761 @@
+//base
+@import 'base/var';
+@import 'base/reset';
+@import 'base/extend';
+
+//mixins
+@import 'mixins/mixins';
+
+//layout
+@import 'layout/footer';
+@import 'layout/header';
+
+//page
+@import 'page/index';
+@import 'page/article';
+@import 'page/forum';
+@import 'page/article-detail';
+@import 'page/forum-detail';
+@import 'page/search-result';
+
+//google-font
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+
+//font awesome
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+@keyframes fadein {
+    0% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+*{
+    font-family: 'Noto Sans TC', sans-serif !important;
+}
+
+img{
+    width: 100%;
+}
+
+h1, h2, .h2{
+    font-size: $h2;
+    font-weight: 700;
+    line-height: 160%;
+    letter-spacing: 0.1em;
+    color: $o-black;
+    display: block;
+    
+    @include mini-pad{
+        font-size: $m-h2;
+        line-height: 140%;
+    }
+}
+h3, .h3{
+    font-size: $h3;
+    font-weight: 500;
+    line-height: 200%;
+    letter-spacing: 0.05em;
+    
+    @include mini-pad{
+        font-size: $m-h3;
+    }
+}
+h4, .h4{
+    font-size: $h4;
+    font-weight: 500;
+    line-height: 200%;
+    letter-spacing: 0.05em;
+    
+    @include mini-pad{
+        font-size: $m-h4;
+    }
+}
+h5, .h5{
+    font-size: $h5;
+    font-weight: 500;
+    line-height: 200%;
+    letter-spacing: 0.05em;
+    
+    @include mini-pad{
+        font-size: $m-h5;
+    }
+}
+p, .p1{
+    font-size: $p1;
+    font-weight: 400;
+    line-height: 188%;
+    letter-spacing: 0.05em;
+    color: $o-black;
+    
+    @include mini-pad{
+        font-size: $m-p1;
+        line-height: 175%;
+    }
+}
+.p1-b{
+    font-size: $p1;
+    font-weight: 500;
+    line-height: 188%;
+    letter-spacing: 0.05em;
+    
+    @include mini-pad{
+        font-size: $m-p1;
+        line-height: 175%;
+    }
+}
+.p2{
+    font-size: $p2;
+    font-weight: 400;
+    line-height: 188%;
+    letter-spacing: 0.05em;
+    
+    @include mini-pad{
+        font-size: $m-p2;
+        line-height: 171%;
+    }
+}
+.p2-b{
+    font-size: $p2;
+    font-weight: 500;
+    line-height: 188%;
+    letter-spacing: 0.05em;
+    
+    @include mini-pad{
+        font-size: $m-p2;
+        line-height: 171%;
+    }
+}
+.tag{
+    font-size: $tag;
+    font-weight: 400;
+    line-height: 185%;
+    letter-spacing: 0.03em;
+    
+    @include mini-pad{
+        font-size: $m-tag;
+        line-height: 167%;
+    }
+}
+.tag-b{
+    font-size: $tag;
+    font-weight: 500;
+    line-height: 185%;
+    letter-spacing: 0.03em;
+    
+    @include mini-pad{
+        font-size: $m-tag;
+        line-height: 167%;
+    }
+}
+
+
+
+.br-rwd{
+    @extend %dis-none;
+
+    @include pad{
+        display: block;
+    }
+}
+
+//main-title
+.main-title {
+    min-width: 100px;
+    width: min-content;
+    // height: 100px;
+  /*   border-radius: 50%; */;
+    position: relative;
+    margin: 100px auto;
+    box-shadow: -10px 10px 0 $o-black;
+    transform: skewX(-8deg);
+    white-space:nowrap;
+    background-color: $o-white;
+    border-style:solid;
+    border-color: $o-black;
+    border-width: 5px;
+
+    .triangle {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 20px 20px 0 20px;
+        border-color: $o-black transparent transparent transparent;
+        bottom: -20px;
+        left: 20px;
+        
+    }
+    .triangle::after  {
+        content: "";
+        position: relative;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 20px 20px 0 20px;
+        border-color: $o-white transparent transparent transparent;
+        bottom: 5px;
+        left: -60px;
+        z-index: 0;
+    }
+    .triangle::before   {
+        content: "";
+        position: relative;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 20px 20px 0 20px;
+        border-color: $o-black transparent transparent transparent;
+        bottom: -10px;
+        left: -28px;
+        z-index: -1;
+    }
+    h1{
+        color:$o-red;
+        padding: 8px 40px;
+        font-size: 46px;
+        font-weight: 900;
+        display: block;
+
+        @include pad{
+            font-size: $h2;
+            padding: 8px 36px;
+        }
+
+        @include mobile{
+            font-size: $h4 !important;
+            padding: 4px 16px;
+        }
+    }
+    h2{
+        color:$o-red;
+        padding: 8px 40px;
+        font-size: 46px;
+        font-weight: 900;
+
+        @include pad{
+            font-size: $h2;
+            padding: 8px 36px;
+        }
+
+        @include mobile{
+            font-size: $h4 !important;
+            padding: 4px 16px;
+        }
+    }
+}
+
+
+
+//btn
+.oj-btn{
+    @include transition($attr:filter, $s:0.5s);
+
+    .btn-box{
+        width: 100%;
+        padding: 3px;
+        background-color: $o-gray-deep;
+        clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+        @include transition($attr:background-color, $s:0.5s);
+        @extend %relative, %dis-bl, %border-box;
+
+        @include pad{
+            width: fit-content;
+        }
+        
+        span{
+            @include flex($a-i:center);
+            gap: 16px;
+            padding: 10px 36px 10px 36px;
+            color: $o-white;
+            background-color: $o-black;
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+            @include transition($s:0.3s);
+    
+            &::before{
+                content: '';
+                width: 16px;
+                height: 16px;
+                @include bgi($position:center center, $size:contain){
+                    background-image: url(../img/index-right-arrow.svg);
+                };
+                @extend %dis-bl;
+            }
+        }
+    }
+
+    &:hover{
+        filter: drop-shadow(0px 0px 24px #FA6B55);
+
+        .btn-box{
+            background-color: $o-red;
+            filter: drop-shadow(0px 0px 24px #FA6B55);
+
+            span{
+                gap:20px;
+                background-color: $o-red;
+            }
+        }
+    }
+}
+
+
+.btn-little{
+    // width: 100%;
+    // max-height: 30px;
+    @extend %pointer;
+
+	.flex {
+		width: fit-content;
+		border:  1px solid $o-red;
+		border-radius:999px;
+		display: flex;
+		/* 垂直置中 */
+		align-items: center;    
+		padding: 4px 16px;
+        gap:8px;
+
+        @include mobile{
+            padding: 4px 8px;
+            gap:4px;
+        }
+
+        span{
+            color: $o-red;
+            @include mobile{
+                font-size: $tag;
+            }
+        }
+
+		img {
+            width: auto; 
+            transform: translate(-2000px);
+            filter: drop-shadow($o-red 2000px 0);
+		}
+
+		&:hover{
+            color: $o-white;
+            border:  1px solid $o-red;
+            background: $o-red;
+            animation: fadein 0.2s;
+            span{
+                color:$o-white;
+            }
+            img {
+                filter: drop-shadow($o-white 2000px 0); 
+            }
+		}
+
+        &:active{
+            background: $o-red-light;
+            border: 1px solid $o-red-light;
+            span{
+                color: $o-white;
+            }
+            img {
+                filter: drop-shadow($o-white 2000px 0); 
+            }
+        }
+
+        &:focus{
+            background: $o-red-light;
+            border: 1px solid $o-red-light;
+            span{
+                color: $o-white;
+            }
+            img {
+                filter: drop-shadow($o-white 2000px 0); 
+            }
+        }
+
+		// &:hover img {
+		// 	filter: drop-shadow($o-white 2000px 0); 
+		// }
+
+        // &:active img {
+		// 	filter: drop-shadow($o-white 2000px 0); 
+		// }
+		
+	}
+    .share-open{
+        width: fit-content;
+		border:  1px solid $o-red;
+		border-radius:999px;
+        display: flex;
+        align-items: center;    
+        padding: 10px 24px;
+        gap: 12px;
+        // position: absolute;
+        // display: none;
+    }
+    .hide{
+        display: none;
+    }
+
+    .active{
+        background: $o-red-light;
+        border: 1px solid $o-red-light;
+        span{
+            color: $o-white;
+        }
+        img {
+            filter: drop-shadow($o-white 2000px 0); 
+        }
+    }
+}
+
+
+.edit{
+    @include flex($d:column,$a-i:flex-end);
+    gap: 8px;
+    width: 100%;
+    textarea{
+        width: 100%;
+        height: 100px;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+}
+
+.btn-area{
+    @include flex;
+    gap: 10px;
+    input{
+        padding: 10px 18px;
+        color: #CD2107;
+        background: #FFFFFF;
+        border: 1px solid #CD2107;
+        border-radius: 20px;
+        @extend %pointer;
+        @include mobile{
+            padding: 4px 8px;
+        }
+    }
+}
+
+
+.forum-flex{
+    @include flex($a-i:center);
+
+    .forum-num{
+        @include flex($a-i:center);
+
+        .section-false{
+            background-color: $o-red-light !important;
+            .num-false{
+                background-color: $o-red !important;
+            }
+        }
+
+        .forum-num-section{
+            width: 100%;
+            padding: 3px;
+            background-color: $o-gray-deep;
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+            @include transition($attr:background-color, $s:0.5s);
+            @extend %relative, %dis-bl, %border-box;
+
+            .forum-num-style{
+                @include flex($a-i:center);
+                gap: 16px;
+                height: 100%;
+                min-width: 220px;
+                padding: 10px 36px 10px 36px;
+                color: $o-white;
+                background-color: $o-black;
+                text-align: center;
+                clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+
+                @include mini-pad{
+                    min-width: 100%;
+                }
+            }
+        }
+
+    }
+}
+
+
+.link-tab{
+    @extend %page-content;
+    margin-bottom: 40px;
+    width: fit-content;
+    // max-width: 66%;
+    @include flex($d:column,$j-c:center);
+    gap: 20px;
+    @extend %mar-auto;
+    overflow-x:hidden;
+  
+  
+    @include pad{
+      margin-top: 20px;
+      // max-width: 100%;
+      overflow-x:hidden;
+    }
+    @include mini-pad{
+      margin-top: 20px;
+      // max-width: 100%;
+      overflow-x:hidden;
+      width: fit-content;
+    }
+  
+    .oj-tab{
+      flex: 1;
+      overflow: hidden;
+      /* width: 900px; */
+      // white-space: nowrap;
+  
+      .tab-box span{
+        justify-content: center;
+        padding: 10px 36px;
+      }
+    }
+  
+    .tab-box{
+      width: 100%;
+      padding: 3px;
+      background-color: $o-gray-deep;
+      clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+      @include transition($attr:background-color, $s:0.5s);
+      @extend %relative, %dis-bl, %border-box;
+  
+      overflow: hidden;
+  
+      span{
+        overflow-x: auto;
+        
+        @include flex($a-i:center);
+        gap: 40px;
+        padding: 10px 36px 10px 36px;
+        color: $o-white;
+        background-color: $o-black;
+        clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+        @include transition($s:0.3s);
+  
+        @include mini-pad{
+          overflow: auto;
+        }
+
+        @include mobile{
+            padding: 8px 28px;
+        }
+  
+        &::before{
+          content: '';
+          width: 16px;
+          height: 16px;
+          @include bgi($position:center center, $size:contain){
+            background-image: url(../img/index-left-arrow.svg);
+          };
+          @extend %dis-bl;
+
+          @include mini-pad{
+            display: none;
+          }
+        }
+  
+        &::after{
+          content: '';
+          width: 16px;
+          height: 16px;
+          @include bgi($position:center center, $size:contain){
+            background-image: url(../img/index-right-arrow.svg);
+          };
+          @extend %dis-bl;
+
+          @include mini-pad{
+            display: none;
+          }
+        }
+        
+        .tab-link{
+          display:flex;
+          gap:20px;
+        //   min-width:299px;
+          width:auto;
+          overflow-x:auto;
+
+          @include pad{
+            width:500px;
+            min-width:400px;
+          }
+
+          @include mini-pad{
+            width:auto;
+            max-width:250px;
+            min-width:100px;
+            gap:16px;
+          }
+
+          @include mobile{
+            width:auto;
+            max-width:180px;
+            min-width:100px;
+            gap:16px;
+          }
+          
+            a{
+            color:$o-white;
+            text-decoration: none;
+            white-space: nowrap;
+
+            @include mobile{
+                font-size: $m-p2;
+            }
+
+                &:hover{
+                color:$o-red;
+                }
+            }
+        }
+
+    }
+    }
+
+    .tag-box{
+        .tag-link{
+            ul{
+                gap: 16px;
+                @include flex($a-i:center);
+
+                @include pad{
+                    width: 700px;
+                    min-width: 400px;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                }
+
+                @include mini-pad{
+                    width: 305px;
+                    min-width: 300px;
+                    gap: 8px;
+                }
+
+                @include mobile{
+                    width: 200px;
+                    min-width: 250px;
+                    overflow: auto;
+                    gap: 8px;
+                }
+
+                // &::before{
+                //     content: '';
+                //     width: 16px;
+                //     height: 16px;
+                //     @include bgi($position:center center, $size:contain){
+                //     background-image: url(../img/article-tag-left-arrow.svg);
+                //     };
+                //     @extend %dis-bl;
+
+                //     @include mini-pad{
+                //     display: none;
+                //     }
+                // }
+            
+                &::after{
+                    content: '';
+                    width: 16px;
+                    height: 16px;
+                    @include bgi($position:center center, $size:contain){
+                    background-image: url(../img/article-tag-right-arrow.svg);
+                    };
+                    @extend %dis-bl;
+    
+                    @include pad{
+                    display: none;
+                    }
+                }
+
+                li{
+                    // color: $o-black;
+
+                    a{
+                        padding: 8px 16px;
+                        border: 1px solid $o-red;
+                        border-radius: 50px;
+                        color: $o-red;
+                        @include transition($s:0.3s);
+                        @extend %dis-in-bl;
+
+                        &:hover{
+                            color: $o-white;
+                            background-color: $o-red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+// Back to top btn
+#button {
+    visibility: hidden;
+    z-index: 1000;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    
+    display: inline-block;
+    background-color: $o-red;
+    width: 52px;
+    height: 52px;
+    text-align: center;
+    border-radius: 50px;
+
+    transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+    opacity: 0;
+
+}
+#button::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: $o-white;
+}
+#button:hover {
+    cursor: pointer;
+    background-color: $o-white;
+    // #button::after {
+    //     color: $o-red;
+    // }
+}
+#button:active {
+    background-color: $o-red-light;
+}
+#button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.btn-text{
+    padding: 8px 16px;
+    border: 1px solid $o-red;
+    border-radius: 50px;
+    color: $o-red;
+    width: fit-content;
+    @include transition($s:0.3s);
+    @extend %dis-in-bl;
+    @extend %pointer;
+
+    &:hover{
+        color: $o-white;
+        background-color: $o-red;
+    }
+}
+
+// 彈窗背景共用
+.dialog-bg {
+    @include absolute($top: 0, $left: 0, $right: 0, $bottom: 0, $z-i: 9991);
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}

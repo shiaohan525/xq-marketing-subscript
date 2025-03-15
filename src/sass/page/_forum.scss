@@ -1,0 +1,418 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: $o-gray-light;
+}
+
+.forum-banner{
+    padding: 160px 0px 160px 0px;
+    min-height: 300px;
+    @extend %relative;
+    background-image: url(../img/forum-banner-bg.png);
+    @include bgi($size:cover,$position:center);
+    // clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    z-index: 4;
+
+    @include mini-pad{
+        padding: 160px 0px 120px 0px;
+        min-height: 200px;
+        // clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    }
+
+    @include mobile{
+        min-height: 120px;
+    }
+
+    .forum-banner-img{
+        @extend %page-content;
+        max-width: 750px;
+        max-height: 600px;
+
+        h1{
+            @extend %dis-none;
+        }
+
+        img{
+            display: block;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            padding: 20px 0px;
+            filter: drop-shadow(-4px -4px 8px rgba(65, 133, 244, 0.8)) drop-shadow(6px 6px 8px rgba(205, 33, 7, 0.8));
+        }
+    }
+
+    .forum-cta{
+        @extend %relative;
+        @extend %page-content;
+        @include absolute($left:50%,$z-i:5,$top:76%);
+        @extend %pointer;
+    
+        border: 4px solid #060E31;
+        box-shadow: 18px 14px 0px #CD2107;
+        border-radius: 40px 2px;
+        transform: translate(-50%, 0%) matrix(0.98, 0, -0.18, 1, 0, 0);
+        padding: 24px 30px;
+        width: fit-content;
+        background-color: $o-white;
+
+        @include mini-pad{
+            padding: 16px 24px;
+        }
+
+        @include mobile{
+            padding: 4px 16px;
+        }
+
+        h2{
+            color: $o-red;
+            font-weight: 900;
+            font-size: 64px;
+            line-height: 64px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+
+            @include mini-pad{
+                font-size: 40px;
+            }
+
+            @include mobile{
+                font-size: $m-h2;
+            }
+        }
+
+        &:hover{
+            background: #4185F4;
+
+            border: 4px solid #060E31;
+            box-shadow: 18px 14px 0px #060E31;
+            animation: fadein 0.2s;
+
+            h2{
+                color: $o-white
+            }
+        }
+    }
+
+    .forum-publish{
+        @extend %page-content;
+        width: 85%;
+
+        transform: translate(-50%, 0%);
+        position: absolute;    
+        width: 100%;    
+        z-index: 6;    
+        top: 30%;   
+        left: 50%;    
+
+        @include flex($j-c:space-between, $a-c:center);
+        background: #F3F4F6;
+        border-radius: 4px;
+        padding: 40px;
+        gap: 16px;
+        box-shadow: 10px 10px 32px rgba(49, 55, 82, 0.2);
+
+        @include mini-pad{
+            padding: 20px;
+            width: 100%;
+            gap:12px;
+        }
+
+        .user-img{
+            max-width: 40px;
+            max-height: 40px;
+            img{
+                width: 100%;
+                height: auto;
+                border-radius: 40px;
+            }
+        }
+        .user-text{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 0px;
+            gap: 16px;
+
+            h4{
+                width: 100%;
+            }
+            textarea{
+                width: inherit;
+                box-sizing: border-box;
+                padding: 8px 12px;
+                background: $o-white;
+                color: $o-gray-deep;
+                border: 1px solid $o-gray-deep;
+            }
+            input{
+                padding: 4px 16px;
+                color: #CD2107;
+                background: #FFFFFF;
+                border: 1px solid #CD2107;
+                border-radius: 20px;
+                @extend %pointer;
+            }
+        }
+    }
+
+    .is-none {
+        display: none;
+    }
+
+}
+
+
+
+.forum{
+    margin: $section-space 0px;
+    min-height: 765px;
+    @extend %relative;
+
+    @include mini-pad{
+        margin: 80px 0px 160px 0px;
+    }
+
+    @include mobile{
+        padding-bottom: 0px;
+        min-height: 100%;
+    }
+    
+    @include bgi($size:cover, $position:center center){
+        background-image: url(../img/index-section-bg01.png);
+    };
+
+    .link-tab{
+        .tab-box{
+
+            span::before, span::after{
+                display: none;
+            }
+
+            .tab-link{
+                width: auto;
+                min-width: 0px;
+            }
+
+        }
+    }
+
+
+
+    .forum-main{
+        @extend %page-content;
+        @include flex($j-c:space-between, $a-c:center, $d:column);
+        gap:44px;
+
+        @include mini-pad{
+            padding: 0px;
+            background-color: $o-white;
+            gap:0px;
+        }
+
+        hr{
+            display: none;
+
+            @include mini-pad{
+                display: block;
+                border: 1px solid $o-gray-light;
+                width: 80%;
+            }
+        }
+
+
+        .forum-section{
+            padding: 44px 40px;
+            gap:20px;
+            @include flex($j-c:space-between, $a-c:center, $d:column);
+            /* C/白 */
+            background: #FFFFFF;
+            /* C/深灰 */
+            border: 1px solid #9497A6;
+            border-radius: 2px;
+
+            @include mini-pad{
+                gap:16px;
+                border: 0px;
+                border-radius: 0px;
+            }
+
+            @include mobile{
+                padding: 24px;
+            }
+
+            a{
+                color: $o-black;
+                .forum-flex{
+                    @include flex($j-c:space-between, $a-c:center);
+                    gap:24px;
+                    
+                    @include pad{
+                        @include flex($d:column,$j-c:space-between, $a-c:center);
+                    }
+        
+                    .forum-num{
+                        @include flex();
+                        gap:12px;
+    
+                        @include mini-pad{
+                            gap:20px;
+                        }
+                        @include mobile{
+                            @include flex($d:row,$j-c:space-around, $a-c:center);
+                            gap:8px;
+                        }
+    
+        
+                        .forum-num-section{
+                            
+                            @include mobile{
+                                min-width: 100px;
+                            }
+    
+                            .forum-num-style{
+                                @include flex($d:column,$a-i:center,$j-c:center);
+                                @extend %border-box;
+    
+                                @include pad{
+                                    @include flex($d:row,$j-c:space-around, $a-c:center);
+                                }
+    
+                                @include mini-pad{
+                                    @include flex($d:column,$j-c:space-around, $a-c:center);
+                                }
+    
+                                @include mobile{
+                                    @include flex($d:row,$j-c:space-around, $a-c:center);
+                                    min-width: 100px;
+                                    gap: 4px;
+                                    padding: 16px 36px;
+                                }
+    
+                                h2,h3{
+                                    font-size: $h3;
+                                    color: $o-white;
+                                    line-height: 36px;
+                                    @include mobile{
+                                        font-size: $h5;
+                                        line-height: 26px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+        
+                    .forum-content{
+                        @include flex($d:column,$j-c:space-between, $a-c:center);
+                        gap:12px;
+                        width: 100%;
+                        .forum-user{
+                            @include flex($j-c:space-between, $a-c:center);
+                            .forum-name{
+                                @include flex($j-c:space-between, $a-c:center, $a-i:center);
+                                gap: 8px;
+                                .forum-user-img{
+                                    width: 40px;
+                                    height: 40px;
+                                    
+                                    img{
+                                        max-width: 100%;
+                                        max-height: 100%;
+                                        border-radius: 40px;
+                                        // background-image: url(../img/index-link6.png);
+                                    }
+                                }
+                            }
+                            .admin-btn{
+                                .admin-btn-main{
+                                    background: #FFFFFF;
+                                    border-radius: 16px;
+    
+                                    &:hover{
+                                        background: #E3E3E4;
+                                    }
+    
+                                }
+                                .admin-menu{
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: flex-start;
+                                    padding: 16px 24px;
+                                    gap: 8px;
+    
+                                    background: #FFFFFF;
+                                    border-radius: 4px;
+                                    filter: drop-shadow(4px 4px 20px rgba(94, 99, 123, 0.2));
+    
+                                    position: absolute;
+                                    z-index: 4;
+                                    right: 0;
+    
+                                    p{
+                                        white-space: nowrap;
+                                    }
+                                }
+                                .hide{
+                                    display: none;
+                                }
+                            }
+                        }
+                        .forum-text{
+                            @include flex($d:column, $j-c:space-between, $a-c:center);
+                            .forum-title{
+                                @include flex($j-c:space-between, $a-c:center);
+    
+                                &:visited{
+                                    color:$o-black;
+                                }
+    
+    
+                                p{
+                                    color:$o-blue;
+                                    display: none;
+                                }
+    
+                                @include mini-pad{
+                                    @include flex($d:column,$j-c:space-between, $a-c:center);
+                                }
+                            }
+                        }
+        
+                    }
+                }
+            }
+    
+
+    
+            .forum-btn{
+                @include flex($j-c:space-between, $a-c:center);
+
+                @include mini-pad{
+                    @include flex($d:column,$j-c:space-between, $a-c:center);
+                    gap:24px;
+                }
+    
+                .forum-btn-left{
+                    @include flex($j-c:flex-start);
+                    gap:16px;
+                }
+            }
+        }
+    }
+
+}
+
+
+.forum-popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 5;
+}

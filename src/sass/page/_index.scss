@@ -1,0 +1,1066 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: $o-gray-light;
+}
+
+$section-space: 160px;
+$section-space-m: 80px;
+
+.banner{
+    padding: 160px 0px 160px 0px;
+    min-height: 500px;
+    @extend %relative;
+    background-image: url(../img/index-banner-bg.png);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    z-index: 4;
+
+    h1{
+        @extend %dis-none;
+    }
+
+    @include mini-pad{
+        padding: 160px 0px 120px 0px;
+        min-height: 200px;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    }
+
+    .banner-img{
+        @extend %page-content;
+        max-width: 600px;
+        max-height: 600px;
+
+        img{
+            display: block;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            padding: 20px 0px;
+            filter: drop-shadow(-4px -4px 8px rgba(65, 133, 244, 0.8)) drop-shadow(6px 6px 8px rgba(205, 33, 7, 0.8));
+        }
+    }
+
+}
+
+
+// 討論區
+.forum{
+    margin-bottom: $section-space;
+    min-height: 765px;
+    @extend %relative;
+
+    @include mobile{
+        padding-bottom: 0px;
+        min-height: 100%;
+        margin-bottom: 0px;
+    }
+    
+    @include bgi($size:cover, $position:center center){
+        background-image: url(../img/index-section-bg01.png);
+    };
+
+    .forum-main{
+        @extend %page-content;
+        @include flex($j-c:space-between, $a-c:center, $d:column);
+        gap:44px;
+
+        @include mini-pad{
+            padding: 0px;
+            background-color: $o-white;
+            gap:0px;
+        }
+
+        hr{
+            display: none;
+
+            @include mini-pad{
+                display: block;
+                border: 1px solid $o-gray-light;
+                width: 80%;
+            }
+        }
+
+
+        .forum-section{
+            padding: 44px 40px;
+            gap:20px;
+            @include flex($j-c:space-between, $a-c:center, $d:column);
+            /* C/白 */
+            background: #FFFFFF;
+            /* C/深灰 */
+            border: 1px solid #9497A6;
+            border-radius: 2px;
+
+            @include mini-pad{
+                gap:16px;
+                border: 0px;
+                border-radius: 0px;
+            }
+
+            @include mobile{
+                padding: 24px;
+            }
+    
+            .forum-flex{
+                @include flex($j-c:space-between, $a-c:center);
+                gap:24px;
+                
+                @include pad{
+                    @include flex($d:column,$j-c:space-between, $a-c:center);
+                }
+    
+                .forum-num{
+                    @include flex();
+                    gap:12px;
+
+                    @include mini-pad{
+                        gap:20px;
+                    }
+                    @include mobile{
+                        @include flex($d:row,$j-c:space-around, $a-c:center);
+                        gap:8px;
+                    }
+
+    
+                    .forum-num-section{
+                        
+                        @include mobile{
+                            min-width: 100px;
+                        }
+
+                        .forum-num-style{
+                            @include flex($d:column,$a-i:center,$j-c:center);
+                            @extend %border-box;
+
+                            @include pad{
+                                @include flex($d:row,$j-c:space-around, $a-c:center);
+                            }
+
+                            @include mini-pad{
+                                @include flex($d:column,$j-c:space-around, $a-c:center);
+                            }
+
+                            @include mobile{
+                                @include flex($d:row,$j-c:space-around, $a-c:center);
+                                min-width: 100px;
+                                gap: 4px;
+                                padding: 16px 36px;
+                            }
+
+                            h2,h3{
+                                font-size: $h3;
+                                color: $o-white;
+                                line-height: 36px;
+                                @include mobile{
+                                    font-size: $h5;
+                                    line-height: 26px;
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                .forum-content{
+                    @include flex($d:column,$j-c:space-between, $a-c:center);
+                    gap:12px;
+                    .forum-user{
+                        @include flex($j-c:space-between, $a-c:center);
+                        .forum-name{
+                            @include flex($j-c:space-between, $a-c:center, $a-i:center);
+                            gap: 8px;
+                            .forum-user-img{
+                                width: 40px;
+                                height: 40px;
+                                
+                                img{
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                    border-radius: 40px;
+                                    // background-image: url(../img/index-link6.png);
+                                }
+                            }
+                        }
+                        .admin-btn{
+                            @extend %relative;
+                            .admin-btn-main{
+                                background: #FFFFFF;
+                                border-radius: 16px;
+
+                                &:hover{
+                                    background: #E3E3E4;
+                                }
+
+                            }
+                            .admin-menu{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                padding: 16px 24px;
+                                gap: 8px;
+
+                                background: #FFFFFF;
+                                border-radius: 4px;
+                                filter: drop-shadow(4px 4px 20px rgba(94, 99, 123, 0.2));
+
+                                position: absolute;
+                                z-index: 4;
+                                right: 0;
+
+                                p{
+                                    white-space: nowrap;
+                                }
+                            }
+                            .hide{
+                                display: none;
+                            }
+                        }
+                    }
+                    .forum-text{
+                        @include flex($d:column, $j-c:space-between, $a-c:center);
+                        .forum-title{
+                            @include flex($j-c:space-between, $a-c:center);
+
+                            p{
+                                color:$o-blue;
+                                display: none;
+                            }
+
+                            @include mini-pad{
+                                @include flex($d:column,$j-c:space-between, $a-c:center);
+                            }
+                        }
+                    }
+    
+                }
+            }
+    
+            .forum-btn{
+                @include flex($j-c:space-between, $a-c:center);
+
+                @include mini-pad{
+                    @include flex($d:column,$j-c:space-between, $a-c:center);
+                    gap:24px;
+                }
+    
+                .forum-btn-left{
+                    @include flex($j-c:flex-start);
+                    gap:16px;
+                }
+            }
+        }
+    }
+
+    .link-box{
+        padding: 44px 0px 0px 0px;
+        @include flex($j-c:space-evenly, $a-c:center);
+
+        @include mobile{
+            @include flex($d:column,$j-c:space-evenly, $a-i:center);
+            gap:16px;
+        }
+    }
+}
+
+// 最多人關注案例
+.article-famous{
+    padding-bottom: $section-space;
+    min-height: 765px;
+    @extend %relative;
+
+    @include mobile{
+        padding-bottom: 0px;
+        min-height: 100%;
+    }
+
+    @include bgi($size:cover, $position:center center){
+        background-image: url(../img/index-section-bg04.svg);
+    };
+
+    .article-section{
+        @extend %page-content;
+
+        .card-flex{
+            display: flex;
+            gap:24px;
+
+            @include pad{
+                min-width: 260px;
+                @include flex($d:column,$j-c:space-between, $a-c:center);
+            }
+
+            @include mini-pad{
+                min-width: 260px;
+                @include flex($d:column,$j-c:space-between, $a-c:center);
+            }
+
+            .classic-card-L{
+                min-width: 340px;
+                width: 1000px;
+                max-height: 100%;
+                height: fit-content;
+                @include transition($attr:box-shadow, $s:0.3s);
+
+                @include pad{
+                    width: 100%;
+                }
+    
+                @include mini-pad{
+                    min-width: 260px;
+                }
+                
+                a{
+                    height: 100%;
+                    border: 2px solid $o-black;
+                    border-radius: 8px;
+                    // background-color: $o-white;
+                    overflow: hidden;
+                    @include transition($attr:border, $s:0.5s);
+                    @extend %dis-bl, %border-box;
+                    
+                    .card-title{
+                        @include flex($j-c:space-between, $a-c:center);
+                        width: 100%;
+                        padding: 8px 24px;
+                        background-color: $o-black;
+                        @include transition($attr:background-color, $s:0.5s);
+                        @extend %dis-bl, %border-box;
+
+                        p{
+                            color: $o-white;
+                        }
+                        span{
+                            @include flex($j-c:space-between, $a-c:center);
+                            gap:10px;
+                            .title-items{
+                                max-height: 30px;
+                            }
+                        }
+                    }
+                    
+                    .img-mask{
+                        max-height: 100%;
+                        height: 700px;
+                        position: relative;
+                        @include img_mask;
+                        background-image: url(../img/index-link1.png);
+                        background-repeat:no-repeat;
+                        background-size: cover;
+                        background-position: center;
+
+                        &::after {
+                            position: absolute;
+                            content:"";
+                            height:100%;
+                            width:100%;
+                            top:0;
+                            left:0;
+                            background: linear-gradient(180deg, rgba(6, 14, 49, 0) 0%, rgba(6, 14, 49, 0.8) 100%);
+                        }
+
+                        @include pad{
+                            height: 500px;
+                            min-height: 100%;
+                        }
+                        
+                        @include mini-pad{
+                            height: 350px;
+                            max-height: 262px;
+                        }
+    
+                        .card-text{
+                            position: absolute;
+                            left: 0px;
+                            bottom: 0px;
+                            padding: 16px 24px;
+                            z-index: 2;
+                            @include mini-pad{
+                                padding: 8px 8px;
+                            }
+                            h5{
+                                @include mini-pad{
+                                padding: 4px 16px;
+                                font-size: $m-tag !important;
+                                }
+                            }
+                            h3{
+                                @include mini-pad{
+                                padding: 4px 16px;
+                                font-size: $m-p1 !important;
+                                }
+                            }
+                            h3,h5 {
+                                color: $o-white;
+                                @include transition($attr:color, $s:0.5s);
+            
+                                @include mini-pad{
+                                    padding: 8px 24px;
+                                    display: -webkit-box;
+                                    text-overflow: ellipsis;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                }
+                            }
+                        }
+    
+                        // img{
+                        //     transform-origin: center center;
+                        //     @include transition($attr:transform, $s:0.5s);
+                        // }
+                    }
+
+                    .img-changea{
+                        background-image: url(../img/index-article-famous01.jpg);
+                    }
+                    
+    
+                }
+    
+                &:hover{
+                    box-shadow: 0px 0px 8px rgba(230, 90, 95, 0.1);
+
+                    .card-title{
+                        background-color: $o-red !important;
+                    }
+                    
+                    a{
+                        border: 2px solid $o-red;
+    
+                        .img-mask{
+                            &::before{
+                                opacity: 1;
+                            }
+    
+                            img{
+                                transform: scale(1.1);
+                            }
+                            
+                        }
+    
+                        h3{
+                            color: $o-red;
+                        }
+                    }
+                }
+            }
+
+            .card-col{
+                @include flex($d:column,$j-c:space-between, $a-c:center);
+
+                @include pad{
+                    min-width: 260px;
+                    gap: 24px;
+                    @include flex($d:row,$j-c:space-between, $a-c:center);
+                }
+
+                @include mini-pad{
+                    @include flex($d:column,$j-c:space-between, $a-c:center);
+                    // overflow: auto;
+                }
+
+                .classic-card-M{
+                    min-width: 340px;
+                    width: 340px;
+                    @include transition($attr:box-shadow, $s:0.3s);
+        
+                    @include pad{
+                        min-width: auto;
+                        width: 100%;
+                        max-height: 450px;
+                        height: 100%;
+                        // @include classic-card-S;
+                    }
+                    
+                    a{
+                        height: 100%;
+                        border: 2px solid $o-black;
+                        border-radius: 2px;
+                        // background-color: $o-white;
+                        overflow: hidden;
+                        @include transition($attr:border, $s:0.5s);
+                        @extend %dis-bl, %border-box;
+
+                        @include pad{
+                            border-radius: 8px;
+                        }
+                        
+                        .card-title{
+                            @include flex($j-c:space-between, $a-c:center);
+                            width: 100%;
+                            padding: 8px 24px;
+                            background-color: $o-black;
+                            @include transition($attr:background-color, $s:0.5s);
+                            @extend %dis-bl, %border-box;
+
+                            p{
+                                color: $o-white;
+                            }
+                            span{
+                                @include flex($j-c:space-between, $a-c:center);
+                                gap:10px;
+                                .title-items{
+                                    max-height: 30px;
+                                }
+                            }
+                        }
+                        
+                        .img-mask{
+                            max-height: 190px;
+                            height: 200px;
+                            position: relative;
+                            @include img_mask;
+                            background-image: url(../img/index-link1.png);
+                            background-repeat:no-repeat;
+                            background-size: cover;
+                            background-position: center;
+
+                            &::after {
+                                position: absolute;
+                                content:"";
+                                height:100%;
+                                width:100%;
+                                top:0;
+                                left:0;
+                                background: linear-gradient(180deg, rgba(6, 14, 49, 0) 0%, rgba(6, 14, 49, 0.8) 100%);
+                            }
+
+                            @include pad{
+                                height: 350px;
+                                // min-height: 300px;
+                            }
+                            
+                            @include mini-pad{
+                                max-height: 262px;
+                            }
+        
+                            .card-text{
+                                position: absolute;
+                                left: 0px;
+                                bottom: 0px;
+                                padding: 16px 24px;
+                                z-index: 2;
+
+                                @include mini-pad{
+                                    padding: 8px 8px;
+                                }
+                                .tag-b{
+                                    @include mini-pad{
+                                    padding: 4px 16px;
+                                    font-size: $m-tag !important;
+                                    }
+                                }
+                                .p1-b{
+                                    @include mini-pad{
+                                    padding: 4px 16px;
+                                    font-size: $m-p1 !important;
+                                    }
+                                }
+                                .tag-b,.p1-b {
+                                    color: $o-white;
+                                    @include transition($attr:color, $s:0.5s);
+                
+                                    @include mini-pad{
+                                        padding: 8px 16px;
+                                        display: -webkit-box;
+                                        text-overflow: ellipsis;
+                                        -webkit-line-clamp: 2;
+                                        -webkit-box-orient: vertical;
+                                        overflow: hidden;
+                                    }
+                                }
+                            }
+        
+                            // img{
+                            //     transform-origin: center center;
+                            //     @include transition($attr:transform, $s:0.5s);
+                            // }
+                        }
+
+                        
+                        .img-changea{
+                            background-image: url(../img/index-article-famous02.jpg);
+                        }
+                        
+                        .img-changeb{
+                            background-image: url(../img/index-article-famous03.jpg);
+                        }
+                        
+                        .img-changec{
+                            background-image: url(../img/index-article-famous04.jpg);
+                        }
+                        
+        
+                    }
+        
+                    &:hover{
+                        box-shadow: 0px 0px 8px rgba(230, 90, 95, 0.1);
+
+                        .card-title{
+                            background-color: $o-red !important;
+                        }
+                        
+                        a{
+                            border: 2px solid $o-red;
+        
+                            .img-mask{
+                                &::before{
+                                    opacity: 1;
+                                }
+        
+                                img{
+                                    transform: scale(1.1);
+                                }
+                            }
+        
+                            h3{
+                                color: $o-red;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// 最新案例
+.article-new{
+    padding-bottom: $section-space;
+    min-height: 765px;
+    @extend %relative;
+
+    @include mobile{
+        padding-bottom: 0px;
+        min-height: 100%;
+    }
+
+    @include bgi($size:cover, $position:center center){
+        background-image: url(../img/index-section-bg03.svg);
+    };
+
+    .article-grid{
+        @extend %page-content;
+        .card-grid{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 24px;
+            grid-row-gap: 36px;
+
+            @include pad{
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                grid-column-gap: 20px;
+                grid-row-gap: 28px;
+            }
+
+            @include mini-pad{
+                display: flex;
+                overflow: auto;
+            }
+
+            .classic-card-M{
+                // min-width: 340px;
+                width: 100%;
+                @include transition($attr:box-shadow, $s:0.3s);
+    
+                // @include mini-pad{
+                //     // min-width: 260px;
+                //     max-height: 200px;
+                // }
+                
+                a{
+                    height: 100%;
+                    border: 2px solid $o-black;
+                    border-radius: 8px;
+                    // background-color: $o-white;
+                    overflow: hidden;
+                    @include transition($attr:border, $s:0.5s);
+                    @extend %dis-bl, %border-box;
+                    
+                    .card-title{
+                        @include flex($j-c:space-between, $a-c:center);
+                        width: 100%;
+                        padding: 8px 24px;
+                        background-color: $o-black;
+                        @include transition($attr:background-color, $s:0.5s);
+                        @extend %dis-bl, %border-box;
+
+                        p{
+                            color: $o-white;
+                        }
+                        span{
+                            @include flex($j-c:space-between, $a-c:center);
+                            gap:10px;
+                            .title-items{
+                                max-height: 30px;
+                            }
+                        }
+                    }
+                    
+                    .img-mask{
+                        min-height: 145px;
+                        height: 250px;
+                        position: relative;
+                        @include img_mask;
+                        background-image: url(../img/index-link1.png);
+                        background-repeat:no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        
+                        &::after {
+                            position: absolute;
+                            content:"";
+                            height:100%;
+                            width:100%;
+                            top:0;
+                            left:0;
+                            background: linear-gradient(180deg, rgba(6, 14, 49, 0) 0%, rgba(6, 14, 49, 0.8) 100%);
+                        }
+                        
+                        @include mini-pad{
+                            width: 400px;
+                        }
+
+                        @include mobile{
+                            width: 235px;
+                            max-height: 262px;
+                        }
+    
+                        .card-text{
+                            position: absolute;
+                            left: 0px;
+                            bottom: 0px;
+                            padding: 16px 24px;
+                            z-index: 2;
+
+                            @include mini-pad{
+                                padding: 8px 8px;
+                            }
+                            .tag{
+                                @include mini-pad{
+                                padding: 4px 8px;
+                                font-size: $m-tag !important;
+                                }
+                            }
+                            .p1{
+                                @include mini-pad{
+                                padding: 4px 8px;
+                                font-size: $m-p1 !important;
+                                }
+                            }
+                            .tag,.p1 {
+                                color: $o-white;
+                                @include transition($attr:color, $s:0.5s);
+            
+                                @include mini-pad{
+                                    // padding: 8px 24px;
+                                    display: -webkit-box;
+                                    text-overflow: ellipsis;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                }
+                            }
+                        }
+    
+                        // img{
+                        //     transform-origin: center center;
+                        //     @include transition($attr:transform, $s:0.5s);
+                        // }
+                    }
+                    
+                    .img-changea{
+                        background-image: url(../img/index-article-new01.jpg);
+                    }
+                    
+                    .img-changeb{
+                        background-image: url(../img/index-article-new02.jpg);
+                    }
+                    
+                    .img-changec{
+                        background-image: url(../img/index-article-new03.jpg);
+                    }
+
+                    .img-changed{
+                        background-image: url(../img/index-article-new04.jpg);
+                    }
+
+                    .img-changee{
+                        background-image: url(../img/index-article-new05.jpg);
+                    }
+
+                    .img-changef{
+                        background-image: url(../img/index-article-new06.jpg);
+                    }
+
+                    .img-changeg{
+                        background-image: url(../img/index-article-new07.jpg);
+                    }
+
+                    .img-changeh{
+                        background-image: url(../img/index-article-new08.jpg);
+                    }
+    
+                }
+    
+                &:hover{
+                    box-shadow: 0px 0px 8px rgba(230, 90, 95, 0.1);
+
+                    .card-title{
+                        background-color: $o-red !important;
+                    }
+                    
+                    a{
+                        border: 2px solid $o-red;
+    
+                        .img-mask{
+                            &::before{
+                                opacity: 1;
+                            }
+    
+                            img{
+                                transform: scale(1.1);
+                            }
+                        }
+    
+                        h3{
+                            color: $o-red;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    
+    .link-box{
+        padding: 44px 0px 0px 0px;
+        width: fit-content;
+        margin-top: 44px;
+        // max-width: 66%;
+        @include flex($j-c:center);
+        gap: 24px;
+        @extend %mar-auto;
+
+        @include mini-pad{
+            margin-top: 40px;
+            max-width: 100%;
+            flex-direction: column;
+            gap:16px;
+        }
+
+        @include mobile{
+            margin-top: 0px;
+        }
+
+        a.oj-btn{
+            flex: 1;
+            
+            .btn-box span{
+                justify-content: center;
+                padding: 10px 36px;
+            }
+        }
+    }
+}
+
+
+// 職缺安心投連結
+.vacanciesLinks{
+    margin-bottom: $section-space;
+    min-height: 765px;
+
+    @include bgi($position:center){
+        background-image: url(../img/index-vacanciesLinks-bg.png);
+        background-position-y: 80%;
+    };
+    
+    @include mini-pad{
+        margin-bottom: $section-space-m;
+        padding-top: $section-space-m;
+        min-height: unset;
+    }
+
+    @include mobile{
+        padding-top: 0px;
+    }
+
+    .vacanciesLinks-content{
+        @extend %page-content;
+
+
+        >ul{
+            @include basic_grid($grid-num1:2, $grid-num2:1fr, $grid-r-gap:24px, $grid-c-gap:32px);
+            
+            @include pad{
+                @include basic_grid($grid-num1:1, $grid-num2:1fr, $grid-r-gap:0px, $grid-c-gap:0px);
+            }
+
+            >li{
+                @extend %relative;
+
+                &::after{
+                    content: '';
+                    width: 0%;
+                    height: 2px;
+                    background-color: $o-red;
+                    @include absolute($bottom:0, $left:0);
+                    @include transition($attr:width, $s:0.8s);
+                    @extend %dis-bl;
+                }
+
+                a{
+                    padding: 24px 16px;
+                    border-bottom: 1px solid $o-gray-deep;
+                    @include flex($a-i:center);
+                    gap: 24px;
+                    @extend %border-box, %dis-bl;
+
+                    @include mobile{
+                        gap: 12px;
+                    }
+
+                    .img-mask{
+                        @include img_mask{
+                            max-width: 160px;
+                        };
+                        
+                        img{
+                            transform-origin: center center;
+                            @include transition($attr:transform, $s:0.5s);
+                        }
+                    }
+
+                    h3{
+                        width: 100%;
+                        color: $o-black;
+                    }
+                    
+                    &::after{
+                        content: '';
+                        min-width: 36px;
+                        height: 36px;
+                        border: 2px solid $o-black;
+                        border-radius: 50px;
+                        @include flex($j-c:center, $a-i:center);
+                        @include bgi($position:center center){
+                        background-image: url(../img/index-right-arrow-black.svg);
+                        @include transition($s:0.5s);
+                        @extend %dis-bl, %border-box;
+                        };
+                    }
+                }
+
+                &:hover{
+                    &::after{
+                        width: 100%;
+                    }
+
+                    a{
+                        .img-mask{
+                            &::before{
+                                opacity: 1;
+                            }
+
+                            img{
+                                transform: scale(1.1);
+                            }
+                        }
+
+                        h3{
+                            color: $o-red;
+                        }
+
+                        &::after{
+                            border: 2px solid $o-red;
+                            background-color: $o-red;
+                            background-image: url(../img/index-right-arrow.svg);
+                            transform: translateX(4px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 申訴管道
+.appeal{
+    padding: 80px 0;
+    padding-bottom: 150px;
+    @extend %relative;
+
+    &::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: $o-white;
+        clip-path: polygon(0 130px, 100% 0%, 100% 100%, 0% 100%);
+        @include absolute($top:0, $left:0);
+        @extend %dis-bl;
+    }
+
+    .appeal-content{
+        @include flex($j-c:space-between, $a-i:center);
+        gap: 24px;
+        z-index: 1;
+        @extend %page-content, %relative;
+
+        @include mini-pad{
+            flex-direction: column;
+        }
+
+        img{
+            max-width: 200px;
+            filter: drop-shadow(10px 10px 16px rgba(0, 0, 0, 0.1));
+        }
+
+        .appeal-wrapper{
+            max-width: 1100px;
+            padding-left: 30px;
+            @include flex;
+            gap: 24px;
+            
+            @include pad{
+                flex-direction: column;
+                padding-left: 0px;
+            }
+
+            @include mini-pad{
+                gap: 8px;
+            }
+
+            ul{
+                gap: 24px;
+                @extend %dis-grid;
+
+                @include mini-pad{
+                    gap: 8px;
+                }
+
+                li{
+                    color: $o-black;
+
+                    a{
+                        padding: 2px 12px 4px;
+                        border: 1px solid $o-red;
+                        border-radius: 50px;
+                        color: $o-red;
+                        @include transition($s:0.3s);
+                        @extend %dis-in-bl;
+
+                        &:hover{
+                            color: $o-white;
+                            background-color: $o-red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

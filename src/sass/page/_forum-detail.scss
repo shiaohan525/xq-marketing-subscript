@@ -1,0 +1,481 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: $o-gray-light;
+}
+
+.detail-wrapper{
+    @extend %relative;
+    margin-top: 250px;
+
+    @include mini-pad{
+        margin-top: 0px;
+    }
+
+    @include mobile{
+        
+    }
+
+    .forum-detail{
+        margin: $section-space 0px;
+        min-height: 765px;
+        @include flex($a-c:center, $d:column);
+        gap:60px;
+        @extend %relative;
+    
+        @include mobile{
+            padding-bottom: 0px;
+            min-height: 100%;
+            margin-bottom: 100px;
+        }
+        
+        @include bgi($size:cover, $position:center center){
+            background-image: url(../img/index-section-bg01.png);
+        };
+    
+        
+        h2{
+            color:$o-black;
+        }
+    
+        .detail-main{
+            @extend %page-content;
+            @include flex($j-c:space-between, $a-c:center, $d:column);
+            gap:44px;
+            padding: 60px 40px;
+            border-radius: 0px 28px;
+            background-color: $o-white;
+
+            max-width: 1340px;
+            width: 100%;
+
+            @include pad{
+                max-width: 1000px;
+                width: 100%;
+            }
+    
+            @include mini-pad{
+                max-width: 700px;
+                padding: 30px 20px;
+                background-color: $o-white;
+                gap:20px;
+            }
+
+            @include mobile{
+                max-width: 420px;
+                width: 100%;
+            }
+    
+    
+            .forum-section{
+                @extend %page-content;
+                @include flex($d:column,$a-i:flex-start);
+                gap:28px;
+
+                width: 100%;
+                min-width: 800px;
+
+                @include pad{
+                    max-width: 980px;
+                    min-width: 600px;
+                }
+    
+                @include mini-pad{
+                    padding: 0px;
+                    gap:32px;
+                    max-width: 730px;
+                    min-width: 350px;
+                }
+
+                @include mobile{
+                    max-width: 400px;
+                    min-width: 250px;
+                    width: 100%;
+                    gap:20px;
+                }
+    
+                .forum-title{
+                    @include flex($d:column,$a-i:center);
+                    gap:20px;
+                    color:$o-gray-deep;
+    
+                    .forum-time{
+                        @include flex($a-i:center);
+                        width: 100%;
+                        gap:4px;
+
+                        .sort{
+                            color:$o-blue;
+                        }
+                        .time{
+                            color:$o-gray-deep;
+                        }
+
+                        .user-img{
+                            max-width: 32px;
+                            max-height: 32px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 40px;
+                            }
+                        }
+                    }
+                }
+
+                iframe{
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 16/9;
+                }
+    
+    
+                .forum-bar{
+                    @include flex($a-c:center,$a-i:center,$j-c:center,$w:wrap);
+                    padding: 0px;
+                    gap: 16px;
+                    width: 100%;
+
+                    .forum-bar-title{
+                        @include flex($a-i:center,$j-c:space-between);
+                        width: 100%;
+
+                        .false{
+                            color: $o-red;
+                            h5{
+                                color: $o-white;
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 40px;
+                                background-color: $o-red !important;
+                                text-align: center;
+                            }
+                        }
+
+                        .bar-text{
+                            @include flex($a-i:center);
+                            gap:12px;
+
+                            h5{
+                                color: $o-white;
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 40px;
+                                background-color: $o-black;
+                                text-align: center;
+                            }
+                        }
+
+                    }
+
+                    .value-bar{
+                        width: 100%;
+                        height: auto;
+                        @include flex($a-i:center);
+
+                        .value-true{
+                            background-color: $o-black;
+                            border-radius: 15px 0px 0px 0px;
+                            height: 16px;
+                            width: 100%;
+                        }
+                        .value-false{
+                            background-color: $o-red;
+                            border-radius: 0px 0px 15px 0px;
+                            height: 16px;
+                            width: 100%;
+                        }
+                    }
+                }
+    
+                .forum-btn{
+                    @include flex($j-c:space-between, $a-c:center);
+                    width: 100%;
+    
+                    @include mini-pad{
+                        @include flex($j-c:space-between, $a-c:center);
+                        gap:24px;
+                    }
+
+                    @include mobile{
+                        img{
+                            width: 16px;
+                            height: auto;
+                        }
+                    }
+        
+                    .forum-btn-left{
+                        @include flex($j-c:flex-start);
+                        gap:16px;
+                    }
+                }
+            }
+
+            .comment-section{
+                @extend %page-content;
+                @include flex($j-c:space-between, $a-c:center, $d:column);
+                gap:44px;
+                padding: 60px 40px;
+                border-radius: 0px 28px;
+                background-color: $o-white;
+                width: 100%;
+                min-width: 800px;
+
+                @include pad{
+                    max-width: 980px;
+                    min-width: 600px;
+                }
+    
+                @include mini-pad{
+                    padding: 0px;
+                    gap:32px;
+                    max-width: 730px;
+                    min-width: 350px;
+                }
+
+                @include mobile{
+                    max-width: 400px;
+                    min-width: 250px;
+                    width: 100%;
+                    gap:20px;
+                }
+        
+                h2{
+                    text-align: center;
+                }
+
+                @include mini-pad{
+                    padding: 0px;
+                    gap:32px;
+                }
+        
+                .user-message{
+                    @extend %page-content;
+                    width: 100%;
+        
+                    @include flex($j-c:space-between, $a-c:center);
+                    border-radius: 4px;
+                    padding: 0px;
+                    gap: 16px;
+    
+                    @include mini-pad{
+                        padding: 30px;
+                        width: 100%;
+                    }
+        
+                    .user-img{
+                        max-width: 40px;
+                        max-height: 40px;
+                        img{
+                            width: 100%;
+                            height: auto;
+                            border-radius: 40px;
+                        }
+                    }
+                    .user-text{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        padding: 0px;
+                        gap: 16px;
+                        h4{
+                            width: 100%;
+                        }
+                        textarea{
+                            width: inherit;
+                        }
+                        input{
+                            padding: 10px 18px;
+                            color: #CD2107;
+                            background: #FFFFFF;
+                            border: 1px solid #CD2107;
+                            border-radius: 20px;
+                            @extend %pointer;
+                        }
+                    }
+        
+                }
+                .message-detail{
+                    @extend %page-content;
+                    width: 100%;
+                    padding: 0px;
+        
+                    @include flex($d:column);
+                    gap:28px;
+
+                    .p1-b{
+                        color:$o-gray-deep;
+                    }
+    
+                    @include mini-pad{
+                        width: 100%;
+                        padding: 0px;
+                    }
+    
+                    @include mobile{
+                        gap:36px;
+                    }
+
+                    hr{
+                        width: 100%;
+                        border: 1px solid $o-gray;
+                    }
+        
+                    .message-user{
+                        .message-main{
+                            @include flex($j-c:space-between, $a-c:center);
+                            gap:16px;
+                            padding: 20px 40px;
+    
+                            @include mobile{
+                                padding: 0px;
+                            }
+        
+                            .user-img{
+                                max-width: 40px;
+                                max-height: 40px;
+                                img{
+                                    width: auto;
+                                    height: 100%;
+                                    border-radius: 40px;
+                                    background-color: $o-gray-light;
+                                }
+                            }
+                            .message-text{
+                                @include flex($d:column);
+                                gap:16px;
+                                width: 100%;
+    
+                                @include mobile{
+                                    gap:4px;
+                                }
+        
+                                p{
+                                    width: auto;
+                                }
+        
+                                .message-user{
+                                    @include flex($d:row, $j-c:space-between, $a-i:center);
+                                    gap:12px;
+        
+                                    .user-name{
+                                        @include flex($d:row, $a-c:center, $a-i:center);
+                                        gap:12px;
+        
+                                        h4{
+                                            color:$o-black;
+                                        }
+                                        h5{
+                                            color:$o-gray-deep;
+                                        }
+    
+                                        @include mobile{
+                                            @include flex($d:column, $a-i:flex-start);
+                                            gap:0px;
+                                        }
+                                    }
+        
+                                    .admin-btn{
+                                        @extend %relative;
+                                        .admin-btn-main{
+                                            background: #FFFFFF;
+                                            border-radius: 16px;
+            
+                                            &:hover{
+                                                background: #E3E3E4;
+                                            }
+            
+                                        }
+                                        .admin-menu{
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: flex-start;
+                                            padding: 16px 24px;
+                                            gap: 8px;
+            
+                                            background: #FFFFFF;
+                                            border-radius: 4px;
+                                            filter: drop-shadow(4px 4px 20px rgba(94, 99, 123, 0.2));
+            
+                                            position: absolute;
+                                            z-index: 4;
+                                            right: 0;
+            
+                                            p{
+                                                white-space: nowrap;
+                                                @extend %pointer;
+                                            }
+                                        }
+                                        .hide{
+                                            display: none;
+                                        }
+                                    }
+        
+                                }
+                                .message-setting{
+                                    @include flex($d:row, $j-c:flex-start, $a-i:center);
+                                    gap:4px;
+    
+                                    @include mobile{
+                                        gap:1px;
+                                    }
+        
+                                    p{
+                                        color: $o-gray-deep;
+                                    }
+        
+                                    .setting-icon{
+                                        @include flex($d:row, $j-c:flex-start, $a-i:center);
+                                        gap:8px;
+                                        white-space: nowrap;
+                                        @include mobile{
+                                            gap:2px;
+                                            img{
+                                                width: 70%;
+                                                height: auto;
+                                            }
+                                            p{
+                                                font-size: $m-tag;
+                                            }
+                                        }
+                                    }
+                                    .active{
+                                        img{
+                                            filter:brightness(0.5);
+                                        }
+                                        p{
+                                            color: $o-blue;
+                                        }
+                                        &:active{
+                                            img{
+                                                filter:brightness(0.5);
+                                            }
+                                            p{
+                                                color: $o-blue;
+                                            }
+                                        }
+                                        &:focus{
+                                            img{
+                                                filter:brightness(0.5);
+                                            }
+                                            p{
+                                                color: $o-blue;
+                                            }
+    
+                                        }
+                                    }
+                                }
+                            }
+                        }
+        
+                    }
+                }
+            }
+    
+        }
+    
+    }
+}

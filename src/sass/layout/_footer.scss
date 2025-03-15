@@ -1,0 +1,99 @@
+footer{
+    background: url(../img/footer-bg.png);
+    margin-top: -100px;
+    width: 100%;
+
+    @include mini-pad{
+        margin-top: -160px;
+    }
+
+    @include bgi($size:cover, $position:top left){
+        filter: drop-shadow(244px -42px 0px $o-red);
+        // box-shadow: 244px -42px 0px #CD2107;
+
+        @include mini-pad{
+            filter: drop-shadow(84px -40px 0px $o-red);
+        }
+        
+        @include mobile{
+            filter: drop-shadow(40px -36px 0px $o-red);
+        }
+    };
+}
+
+.footer-main{
+    @include flex($j-c:space-between, $a-c:center, $a-i:center);
+    @extend %page-content;
+    padding: 100px 30px 60px 30px;
+
+    @include pad{
+        @include flex($d:column,$j-c:space-between, $a-c:center, $a-i:center);
+        gap:40px;
+        padding-top: 160px;
+        padding-bottom: 100px;
+    }
+    
+    .footer-content{
+        h4{
+            color:$o-white;
+        }
+
+        @include pad{
+            padding-top: 80px;
+        }
+
+        .footer-link{
+            @include flex;
+            gap:60px;
+
+            @include mini-pad{
+                @include flex($d:column,$j-c:space-between, $a-c:center, $a-i:center);
+                gap:0px;
+                text-align: center;
+            }
+            p{
+                line-height: 36px !important;
+            }
+
+            a{
+                color:$o-white;
+
+            }
+            a:visited {
+                color:$o-white;
+            }
+        }
+    }
+    
+    
+    .footer-app{
+        @include flex($d:column);
+        gap: 8px;
+
+        @include mobile{
+            gap: 16px;
+        }
+
+        p{
+            color:$o-white;
+        }
+        .footer-app-link{
+            @include flex;
+            gap:16px;
+
+            @include mobile{
+                @include flex($d:column,$j-c:space-between, $a-c:center, $a-i:center);
+            }
+        }
+    }
+    
+
+}
+
+
+
+
+
+
+
+
